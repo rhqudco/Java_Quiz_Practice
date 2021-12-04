@@ -1,4 +1,4 @@
-package AlgoPractice;
+package AlgoPractice.recursive;
 
 public class Recur {
     public static void main(String[] args) {

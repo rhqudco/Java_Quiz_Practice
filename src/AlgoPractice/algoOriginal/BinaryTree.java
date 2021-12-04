@@ -1,15 +1,9 @@
-package AlgoPractice.algorismProject2;
-
-import AlgoPractice.algoTest.BinTree;
+package AlgoPractice.algoOriginal;
 
 import static java.lang.System.exit;
 
 public class BinaryTree {
     Node rootNode = null;
-
-    /*public void print() {
-        System.out.println(rootNode);
-    }*/
 
     public void insertNode(int element, String name) {
         if(rootNode == null) { // 루트가 빈 경우 즉, 아무 노드도 없으면 노드 생성
@@ -148,33 +142,55 @@ public class BinaryTree {
         return true;
     }
 
-    public void printSubTree(Node node) {
-        if (node == null) {
-            System.out.println("등록된 상품이 없습니다.");
-            System.out.println();
+    // 전위 순회 root - left - right
+    public void preorderTree(Node root, int depth) {
+        if(root != null) {
+            for(int i = 0; i < depth; i++) {
+                System.out.print("ㄴ");
+            }
+            System.out.println(root.value); // root
+            preorderTree(root.leftchild, depth+1); // left
+            preorderTree(root.rightchild, depth+1); // right
         }
         else {
-            printSubTree(node.leftchild);								// 왼쪽 서브 트리를 키 값의 오름차순으로 출력
-            System.out.println(node.value + " " + node.name);			// node를 출력
-            printSubTree(node.rightchild);								// 오른쪽 서브 트리를 키 값의 오름차순으로 출력
+            System.out.println("등록된 상품이 없습니다.");
+            exit(0);
         }
     }
-
-    // 모든 노드를 키 값의 오름차순으로 출력
-    public void print() {
-            printSubTree(rootNode);
+    // 중위 순회 left - root - right
+    public void inorderTree(Node root, int depth) {
+        if(root != null) {
+            inorderTree(root.leftchild, depth+1); // left
+            for(int i = 0; i < depth; i++) {
+                System.out.print("ㄴ");
+            }
+            System.out.println(root.value); // root
+            inorderTree(root.rightchild, depth+1); // right
+        }
     }
-
+    // 중위 순회 left - right - root
+    public void postorderTree(Node root, int depth) {
+        if(root != null) {
+            postorderTree(root.leftchild, depth+1); // left
+            postorderTree(root.rightchild, depth+1); // right
+            for(int i = 0; i < depth; i++) {
+                System.out.print("ㄴ");
+            }
+            System.out.println(root.value); // root
+        }
+    }
     public void searchBTree(Node n, int target) {
         try {
             if(target < n.value) {
+                System.out.println("타겟이 " + n.value + "보다 작음");
                 searchBTree(n.leftchild, target);
             }
             else if(target > n.value) {
+                System.out.println("타겟이 " + n.value + "보다 큼");
                 searchBTree(n.rightchild, target);
             }
             else {
-                System.out.println("상품명 : " + n.name);
+                System.out.println("타겟이 " + n.value + "임");
             }
         } catch (Exception e) {
             System.out.println("찾지 못함.");

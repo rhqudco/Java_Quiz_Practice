@@ -1,4 +1,4 @@
-package AlgoPractice;
+package AlgoPractice.recursive;
 
 public class Ex1 {
     public static void main(String[] args) {

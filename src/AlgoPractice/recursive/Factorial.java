@@ -1,4 +1,4 @@
-package AlgoPractice;
+package AlgoPractice.recursive;
 
 import java.util.Scanner;
 
