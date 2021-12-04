@@ -23,6 +23,7 @@ public class BinaryTreeMain {
                 String insertProductName = scan.next();
 
                 tree.insertNode(insertProduct, insertProductName);
+                System.out.println();
 
             } else if (menu == 2) {
                 System.out.println("상품 삭제");
@@ -32,15 +33,19 @@ public class BinaryTreeMain {
                 tree.removeNode(removeProduct);
 
                 System.out.println("상품 삭제 완료");
+                System.out.println();
 
             } else if (menu == 3) {
                 System.out.println("상품 검색");
                 System.out.print("상품 번호 입력 : ");
                 int searchProudct = scan.nextInt();
                 tree.searchBTree(tree.rootNode, searchProudct);
+                System.out.println();
 
             } else if (menu == 4) {
-                tree.printSubTree(tree.rootNode);
+                //tree.printSubTree(tree.rootNode);
+                tree.preorderTree(tree.rootNode, 0);
+                System.out.println();
 
             } else if (menu == 5) {
                 System.out.println("종료합니다.");

@@ -7,10 +7,6 @@ import static java.lang.System.exit;
 public class BinaryTree {
     Node rootNode = null;
 
-    /*public void print() {
-        System.out.println(rootNode);
-    }*/
-
     public void insertNode(int element, String name) {
         if(rootNode == null) { // 루트가 빈 경우 즉, 아무 노드도 없으면 노드 생성
             rootNode = new Node(element, name);
@@ -149,11 +145,7 @@ public class BinaryTree {
     }
 
     public void printSubTree(Node node) {
-        if (node == null) {
-            System.out.println("등록된 상품이 없습니다.");
-            System.out.println();
-        }
-        else {
+        if (node != null) {
             printSubTree(node.leftchild);								// 왼쪽 서브 트리를 키 값의 오름차순으로 출력
             System.out.println(node.value + " " + node.name);			// node를 출력
             printSubTree(node.rightchild);								// 오른쪽 서브 트리를 키 값의 오름차순으로 출력
@@ -162,8 +154,18 @@ public class BinaryTree {
 
     // 모든 노드를 키 값의 오름차순으로 출력
     public void print() {
-            printSubTree(rootNode);
+        printSubTree(rootNode);
     }
+
+    public void preorderTree(Node root, int depth) {
+            if(root == null) {
+                System.out.println("등록된 상품이 없습니다.");
+            }
+            else {
+                print();
+            }
+        }
+
 
     public void searchBTree(Node n, int target) {
         try {
