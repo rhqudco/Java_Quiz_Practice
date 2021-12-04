@@ -7,6 +7,7 @@ import static java.lang.System.exit;
 public class BinaryTree {
     Node rootNode = null;
 
+
     public void insertNode(int element, String name) {
         if(rootNode == null) { // 루트가 빈 경우 즉, 아무 노드도 없으면 노드 생성
             rootNode = new Node(element, name);
